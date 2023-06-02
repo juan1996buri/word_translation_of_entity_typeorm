@@ -12,7 +12,7 @@ async function quickStart(text) {
 
 try {
   // coloca el archivo en la raiz del proyecto en donde esta package.json ejemplo ./CatTipopago.ts
-  const rutaArchivo = "./CatPuntoVenta.ts";
+  const rutaArchivo = "./CatLoginUsuarios.ts";
   const nuevoNombre = rutaArchivo.replace("./", "").replace(".", "_Traducido.");
   let archivoEnTexto = "";
 
@@ -37,6 +37,7 @@ try {
       "onDelete:",
       "onUpdate:",
       "referencedColumnName:",
+      "00:",
     ];
 
     //palabras especificas que quieres modificar, dejarlos en minuscula
@@ -65,7 +66,8 @@ try {
           palabra != palabrasAIgnorar[2] &&
           palabra != palabrasAIgnorar[3] &&
           palabra != palabrasAIgnorar[4] &&
-          palabra != palabrasAIgnorar[5]
+          palabra != palabrasAIgnorar[5] &&
+          palabra != palabrasAIgnorar[6]
         ) {
           if (palabra.includes(":")) {
             palabraDetectada = palabra.replace(":", "");
