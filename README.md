@@ -7,7 +7,7 @@
 # TenerEnCuenta, si el programa no traduce algunas palabras  como, ' diaMundual '
  puedes aumentarlos en el array de palabrasIngles que te describo acontinuacion
 
-# Si algunas traducciones no estan de acuerdo a tus preferenias las puedes modificar aqui, debe estar en minuscula la traducción
+# Si algunas traducciones no estan de acuerdo a tus preferencias las puedes modificar aqui, debe estar en minuscula la traducción
  const palabrasIngles = [
       {
         actual: "dia",
