@@ -38,5 +38,4 @@ const rutaArchivo = "./CatNotificacionesCorreo.ts";
 # ejecucion
 npm run start
 
-#ejecutar
 
