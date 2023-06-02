@@ -7,20 +7,8 @@
 # TenerEnCuenta, si el programa no traduce algunas palabras  como, # diaMundual
  puedes aumentarlos en el array de palabrasIngles que esta acontinuacion
 
-# Si algunas traducciones no estan de acuerdo a tus preferenias los puedes modificar aqui, debe estar en minuscula la traducción
+# Si algunas traducciones no estan de acuerdo a tus preferenias las puedes modificar aqui, debe estar en minuscula la traducción
  const palabrasIngles = [
-      {
-        actual: "tipo",
-        traducido: "type",
-      },
-      {
-        actual: "fecha",
-        traducido: "date",
-      },
-      {
-        actual: "orden",
-        traducido: "order",
-      },
       {
         actual: "dia",
         traducido: "day",
