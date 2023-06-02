@@ -2,36 +2,8 @@
 
 #este proyecto ayuda a traducir a varios idiomas  los nombres de las variables, solo funciona para entidades echas en Tyeorm
 
-ejemplo:
+![Logo de GitHub](https://firebasestorage.googleapis.com/v0/b/proyectopis-39473.appspot.com/o/imagen_2023-06-02_104514892.png?alt=media&token=53817e8c-2106-4c89-a7e2-f2403adfbe54&_gl=1*1col4xa*_ga*NjY3ODAwMjg1LjE2ODQyNjcxMjg.*_ga_CW55HF8NVT*MTY4NTcyMDU5My4xNi4xLjE2ODU3MjA3MTkuMC4wLjA.)
 
-#archivo a traducir:
-@Entity("cat_notificaciones_correo", { schema: "integration" })
-export class CatNotificacionesCorreo {
-  @PrimaryGeneratedColumn({ type: "int", name: "id" })
-  id: number;
-  @Column("int", { name: "tipo", unsigned: true, default: () => "'0'" })
-  tipo: number;
-  @Column("text", { name: "nombre_tipo" })
-  nombreTipo: string;
-  @Column("text", { name: "correo_envio" })
-  correoEnvio: string;
-}
-
-
-#archivo a traducido:
-
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-@Entity("cat_notificaciones_correo", { schema: "integration" })
-export class CatNotificacionesCorreo {
-  @PrimaryGeneratedColumn({ type: "int", name: "id" })
-  id: number;
-  @Column("int", { name: "tipo", unsigned: true, default: () => "'0'" })
-  type: number;
-  @Column("text", { name: "nombre_tipo" })
-  nameType: string;
-  @Column("text", { name: "correo_envio" })
-  mailShipping: string;
-}
 #tener en cuenta, si el programa no traduce algunas palabras  como, diaMundual
  puedes aumentarlos en el array de palabrasIngles que esta acontinuacion
 
