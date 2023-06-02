@@ -12,7 +12,7 @@ async function quickStart(text) {
 
 try {
   // coloca el archivo en la raiz del proyecto en donde esta package.json ejemplo ./CatTipopago.ts
-  const rutaArchivo = "./CatTipopago.ts";
+  const rutaArchivo = "./CatPuntoVenta.ts";
   const nuevoNombre = rutaArchivo.replace("./", "").replace(".", "_Traducido.");
   let archivoEnTexto = "";
 
@@ -30,7 +30,14 @@ try {
     let nuevoArchivo = [];
 
     //palabra que seran ignoradas en la ejecucion
-    const palabrasAIgnorar = ["schema:", "type:", "name:"];
+    const palabrasAIgnorar = [
+      "schema:",
+      "type:",
+      "name:",
+      "onDelete:",
+      "onUpdate:",
+      "referencedColumnName:",
+    ];
 
     //palabras especificas que quieres modificar, dejarlos en minuscula
     const palabrasIngles = [
@@ -48,39 +55,50 @@ try {
       },
     ];
 
+    console.log("espere............");
+
     async function translateWords() {
       for (const palabra of palabras) {
         if (
           palabra != palabrasAIgnorar[0] &&
           palabra != palabrasAIgnorar[1] &&
-          palabra != palabrasAIgnorar[2]
+          palabra != palabrasAIgnorar[2] &&
+          palabra != palabrasAIgnorar[3] &&
+          palabra != palabrasAIgnorar[4] &&
+          palabra != palabrasAIgnorar[5]
         ) {
           if (palabra.includes(":")) {
             palabraDetectada = palabra.replace(":", "");
             const palabraEnIngles = await quickStart(palabraDetectada);
 
             var palabraSeparadas = palabraEnIngles.split(/(?=[A-Z])/);
+
             let palabraModificada = [];
+
             palabraSeparadas.map((item, index) => {
-              palabrasIngles.map((ingles, position) => {
-                if (item.includes(ingles.actual)) {
-                  if (item.charAt(0) == item.charAt(0).toUpperCase()) {
-                    let mayuscula =
-                      ingles.traducido.charAt(0).toUpperCase() +
-                      ingles.traducido.slice(1);
-
-                    console.log(mayuscula);
-
-                    palabraModificada.push(mayuscula);
-                  } else {
-                    palabraModificada.push(ingles.traducido);
-                  }
-                }
+              let palabraEncontrada = palabrasIngles?.find((ingles, index) => {
+                return ingles.actual
+                  .toLocaleLowerCase()
+                  .includes(item.toLocaleLowerCase());
               });
+              if (palabraEncontrada) {
+                if (item.charAt(0) == item.charAt(0).toUpperCase()) {
+                  let mayuscula =
+                    palabraEncontrada.traducido.charAt(0).toUpperCase() +
+                    palabraEncontrada.traducido.slice(1);
+
+                  palabraModificada.push(mayuscula);
+                } else {
+                  palabraModificada.push(palabraEncontrada.traducido);
+                }
+              } else {
+                palabraModificada.push(item);
+              }
             });
 
             if (palabraModificada.length != 0) {
-              nuevoArchivo.push(palabraModificada.join("") + ":");
+              let palabraUnida = palabraModificada.join("");
+              nuevoArchivo.push(palabraUnida + ":");
             } else {
               nuevoArchivo.push(palabraEnIngles + ":");
             }
